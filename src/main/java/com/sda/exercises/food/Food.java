@@ -1,6 +1,6 @@
 package com.sda.exercises.food;
 
-public enum Foods {
+public enum Food {
     BONES,
     MEAT,
     GRAINS

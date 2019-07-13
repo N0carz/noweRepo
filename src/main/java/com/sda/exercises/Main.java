@@ -1,6 +1,6 @@
 package com.sda.exercises;
 
-import com.sda.exercises.animals.Dog;
+import com.sda.exercises.animals.AnimalTimer;
 import com.sda.exercises.person.Person;
 
 public class Main {
@@ -8,11 +8,12 @@ public class Main {
     public static void main(String[] args) {
 
         Person person = new Person();
-        person.buyAnimal(new Dog());
+        AnimalTimer animalTimer = new AnimalTimer(person.getAnimals());
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i);
-            person.feedAnimals();
-        }
+        Thread threadAnimal = new Thread(animalTimer);
+        threadAnimal.start();
+
+        Thread threadPerson = new Thread(person);
+        threadPerson.start();
     }
 }
